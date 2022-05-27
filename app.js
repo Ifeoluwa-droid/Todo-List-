@@ -4,7 +4,7 @@ const date = require(__dirname + '/date.js');
 const mongoose = require("mongoose");
 const _ = require('lodash');
 
-const port = 3000;
+let port;
 const app = express();
 
 app.set('view engine', 'ejs');
@@ -174,9 +174,15 @@ app.post('/work', (req, res) => {
 
 app.get('/about', (req, res) => {
   res.render("about");
-})
+});
+
+port = process.env.PORT;
+
+if (port == null || port = "") {
+  port = 3000;
+}
 
 app.listen(port, () => {
-  const message = `Server started on port ${port}`
+  const message = `Server started successfully`;
   console.log(message);
 })
