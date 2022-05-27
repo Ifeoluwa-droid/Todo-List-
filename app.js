@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static('public'));
 
-mongoose.connect("mongodb://localhost:27017/todolistDB", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://Ifeoluwa:ifeyfaro2001FD@cluster0.vllpj.mongodb.net/todolistDB", {useNewUrlParser: true});
 
 const itemsSchema = {
   name: String
@@ -161,7 +161,6 @@ app.get('/:customListName', (req, res) => {
       }
     }
   });
-
 });
 
 app.post('/work', (req, res) => {
